@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Headphone Options - Shortlisted for You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.5;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .agent-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Countdown Timer */
+        .countdown-banner {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            text-align: center;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        .countdown-number {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 5px;
+        }
+
+
+        /* Product Grid Container */
+        .comparison-container {
+            background-color: white;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #f9fafb;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            border-color: #667eea;
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .product-image-container {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            max-width: 85%;
+            max-height: 85%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .current-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .original-price {
+            font-size: 18px;
+            color: #999999;
+            text-decoration: line-through;
+        }
+
+        .savings {
+            font-size: 14px;
+            color: #16a34a;
+            font-weight: 600;
+            background-color: #f0fdf4;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Rating Section - Matching Target Design */
+        .rating-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .rating-number {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            font-size: 20px;
+            color: #fbbf24;
+        }
+
+        .star.empty {
+            color: #d1d5db;
+        }
+
+        .star.half {
+            position: relative;
+            display: inline-block;
+        }
+
+        .star.half::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #fbbf24;
+            width: 50%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .rating-text {
+            color: #666666;
+            font-size: 16px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .rating-text:hover {
+            color: #1a1a1a;
+        }
+
+        /* View Button */
+        .view-btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .view-btn:hover {
+            background-color: #5568d3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .comparison-container {
+                padding: 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .comparison-title {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 25px 20px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            .comparison-container {
+                padding: 15px;
+            }
+
+            .comparison-title {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .product-card {
+                padding: 20px;
+            }
+
+            .product-name {
+                font-size: 20px;
+            }
+
+            .product-image-container {
+                height: 220px;
+            }
+
+            .current-price {
+                font-size: 24px;
+            }
+
+            .rating-number {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 18px;
+            }
+
+            .comparison-container {
+                padding: 12px;
+            }
+
+            .product-card {
+                padding: 15px;
+            }
+
+            .product-name {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>I've shortlisted these headphone options for you. Let me analyze them to find the best match for your
+                needs.</h1>
+        </div>
+
+        <!-- Countdown Banner -->
+        <div class="countdown-banner" id="countdownBanner">
+            🔍 Analyzing options... Redirecting to best recommendation in <span class="countdown-number"
+                id="countdown">15</span> seconds
+        </div>
+
+        <!-- Product Comparison Section -->
+        <div class="comparison-container">
+
+            <div class="product-grid">
+                <!-- Product 1: Sony WH-WH1000XM4 -->
+                <div class="product-card">
+                    <div class="product-name">Sony WH-1000XM4</div>
+                    <div class="product-image-container">
+                        <img src="https://d1ncau8tqf99kp.cloudfront.net/converted/74748_original_local_1200x1050_v3_converted.webp"
+                            alt="Sony WH-1000XM4 Headphones" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="price-section">
+                            <span class="current-price">$199.99</span>
+                            <span class="original-price">$349.99</span>
+                            <span class="savings">Save $150</span>
+                        </div>
+                        <div class="rating-container">
+                            <span class="rating-number">4.7</span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                            </div>
+                            <span class="rating-text">49K star ratings</span>
+                        </div>
+                        <!-- <button class="view-btn">View Details</button> -->
+                    </div>
+                </div>
+
+                <!-- Product 2: JBL Tune 720 BT -->
+                <div class="product-card">
+                    <div class="product-name">JBL Tune 720 BT</div>
+                    <div class="product-image-container">
+                        <img src="https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw211f3dfc/01.JBL_Tune_720BT_ProductImage_Hero_White.png?sw=535&sh=535"
+                            class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="price-section">
+                            <span class="current-price">$89.95</span>
+                        </div>
+                        <div class="rating-container">
+                            <span class="rating-number">4.5</span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star empty">★</span>
+                            </div>
+                            <span class="rating-text">8.5K star ratings</span>
+                        </div>
+                        <!-- <button class="view-btn">View Details</button> -->
+                    </div>
+                </div>
+
+                <!-- Product 3: Beats Studio Pro -->
+                <div class="product-card">
+                    <div class="product-name">Beats Studio Pro</div>
+                    <div class="product-image-container">
+                        <img src="https://www.beatsbydre.com/content/dam/beats/web/product/headphones/solo4-wireless/pdp/product-carousel/matte-black/black-01-solo4.jpg"
+                            class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="price-section">
+                            <span class="current-price">$129.99</span>
+                            <span class="original-price">$199.95</span>
+                            <span class="savings">Save $70</span>
+                        </div>
+                        <div class="rating-container">
+                            <span class="rating-number">4.6</span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star empty">★</span>
+                            </div>
+                            <span class="rating-text">18.9K star ratings</span>
+                        </div>
+                        <!-- <button class="view-btn">View Details</button> -->
+                    </div>
+                </div>
+
+                <!-- Product 4: Apple AirPods -->
+                <div class="product-card">
+                    <div class="product-name">Apple AirPods Pro</div>
+                    <div class="product-image-container">
+                        <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-pro-3-hero-select-202509?wid=976&hei=916&fmt=jpeg&qlt=90&.v=cmp4MmZ6OWxOeHNNTXh4SzlBNUpEb1RucE9zZTI5eEREaWZpY29lSld3eWVDYXovZDMyN1dXU211bjZoVlVUcWJGcXNRQnFCV0w3WVRjTExvdm1ic1YxRUxFRmRlWDBITzhnRmZ5OTRmaVdKTExiOEFsRmxtQ2Nua0tRSC83MkI"
+                            alt="Apple AirPods Pro" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <div class="price-section">
+                            <span class="current-price">$169.99</span>
+                            <span class="original-price">$249.00</span>
+                            <span class="savings">Save $79</span>
+                        </div>
+                        <div class="rating-container">
+                            <span class="rating-number">4.6</span>
+                            <div class="stars">
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star">★</span>
+                                <span class="star empty">★</span>
+                            </div>
+                            <span class="rating-text">40K star ratings</span>
+                        </div>
+                        <!-- <button class="view-btn">View Details</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown and auto-redirect functionality
+        let countdownSeconds = 15;
+        let countdownInterval;
+
+        function startCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const countdownBanner = document.getElementById('countdownBanner');
+
+            countdownInterval = setInterval(function() {
+                countdownSeconds--;
+                countdownElement.textContent = countdownSeconds;
+
+                // Change banner color as countdown gets closer to 0
+                if (countdownSeconds <= 5) {
+                    countdownBanner.style.background = 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)';
+                }
+
+                if (countdownSeconds <= 3) {
+                    countdownBanner.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+                }
+
+                // Redirect when countdown reaches 0
+                if (countdownSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownBanner.textContent = 'Redirecting to best recommendation now...';
+                    
+                    // Redirect to Beats product page
+                    setTimeout(function() {
+                        window.location.href = 'beats-product-page.html';
+                    }, 500);
+                }
+            }, 1000);
+        }
+
+        // Page initialization
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('AI Agent Headphone Comparison Page Loaded');
+            console.log('4 shortlisted products displayed');
+            console.log('Auto-redirect to Beats page in 15 seconds...');
+
+            // Start countdown timer
+            startCountdown();
+
+            // Add event listeners to all view buttons
+            const viewButtons = document.querySelectorAll('.view-btn');
+            viewButtons.forEach(function (button) {
+                button.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const card = this.closest('.product-card');
+                    const productName = card.querySelector('.product-name').textContent;
+                    const price = card.querySelector('.current-price').textContent;
+                    const rating = card.querySelector('.rating-number').textContent;
+
+                    console.log('View Details clicked:', {
+                        product: productName,
+                        price: price,
+                        rating: rating
+                    });
+
+                    // Show alert (in real app, this would navigate to product page)
+                    alert(
+                        `Viewing details for ${productName}\nPrice: ${price}\nRating: ${rating} stars`
+                        );
+                });
+            });
+
+            // Add hover effect logging for product cards
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(function (card) {
+                card.addEventListener('mouseenter', function () {
+                    const productName = this.querySelector('.product-name').textContent;
+                    console.log('User viewing:', productName);
+                });
+            });
+
+            // Add click handler for rating text
+            const ratingTexts = document.querySelectorAll('.rating-text');
+            ratingTexts.forEach(function (text) {
+                text.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const card = this.closest('.product-card');
+                    const productName = card.querySelector('.product-name').textContent;
+                    console.log('Viewing reviews for:', productName);
+                    alert(`Reviews section for ${productName} would be shown here`);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
