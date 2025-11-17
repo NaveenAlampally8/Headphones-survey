@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,32 +41,15 @@
         .logo {
             width: 50px;
             height: 50px;
-            background-color: #cc0000;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
         }
 
-        .logo-inner {
-            width: 30px;
-            height: 30px;
-            background-color: #ffffff;
-            border-radius: 50%;
-        }
-
-        .logo-inner-inner {
-            width: 20px;
-            height: 20px;
-            margin-top: 5px;
-            margin-left: 5px;
-            background-color: #cc0000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+        .logo img {
+            width: 70%;
+            height: auto;
         }
 
         .nav-menu {
@@ -584,6 +568,7 @@
                 transform: translateX(400px);
                 opacity: 0;
             }
+
             to {
                 transform: translateX(0);
                 opacity: 1;
@@ -643,6 +628,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Recommendation Banner -->
     <div class="recommendation-banner">
@@ -653,9 +639,8 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <div class="logo-inner">
-                    <div class="logo-inner-inner"></div>
-                </div>
+                <img src="https://www.beatsbydre.com/content/dam/beats/global/logos/beats-logo-161616.png"
+                    alt="Beats by Dre Logo">
             </div>
 
             <nav>
@@ -699,10 +684,9 @@
             <div class="image-section">
                 <div class="zoom-icon">⤢</div>
                 <div class="main-image-container">
-                    <img id="mainImage" 
-                         src="https://target.scene7.com/is/image/Target/GUEST_ab5e01ad-d628-40b9-bef2-cc325776f5e4?wid=1000&hei=1000&qlt=80&fmt=webp" 
-                         alt="Beats Solo 4 Bluetooth Wireless On-Ear Headphones" 
-                         class="main-image">
+                    <img id="mainImage"
+                        src="https://target.scene7.com/is/image/Target/GUEST_ab5e01ad-d628-40b9-bef2-cc325776f5e4?wid=1000&hei=1000&qlt=80&fmt=webp"
+                        alt="Beats Solo 4 Bluetooth Wireless On-Ear Headphones" class="main-image">
                 </div>
                 <button class="wishlist-btn" id="wishlistBtn" onclick="toggleWishlist()">♡</button>
             </div>
@@ -710,7 +694,7 @@
             <!-- Product Info Section -->
             <div class="product-info">
                 <a href="#" class="brand-link">Shop all Beats</a>
-                
+
                 <h1 class="product-title">Beats Solo 4 Bluetooth Wireless On-Ear Headphones</h1>
 
                 <div class="rating-section">
@@ -746,11 +730,16 @@
                 <div class="color-section">
                     <label class="color-label">Color <strong>Matte Black</strong></label>
                     <div class="color-options">
-                        <div class="color-option" style="background-color: #d4c5d8;" onclick="selectColor(this, 'Cloud Pink')"></div>
-                        <div class="color-option selected" style="background-color: #1a1a1a;" onclick="selectColor(this, 'Matte Black')"></div>
-                        <div class="color-option" style="background-color: #4a6278;" onclick="selectColor(this, 'Slate Blue')"></div>
-                        <div class="color-option" style="background-color: #c8c8c8;" onclick="selectColor(this, 'Slate Grey')"></div>
-                        <div class="color-option" style="background-color: #e8dcc8;" onclick="selectColor(this, 'Sandstone')"></div>
+                        <div class="color-option" style="background-color: #d4c5d8;"
+                            onclick="selectColor(this, 'Cloud Pink')"></div>
+                        <div class="color-option selected" style="background-color: #1a1a1a;"
+                            onclick="selectColor(this, 'Matte Black')"></div>
+                        <div class="color-option" style="background-color: #4a6278;"
+                            onclick="selectColor(this, 'Slate Blue')"></div>
+                        <div class="color-option" style="background-color: #c8c8c8;"
+                            onclick="selectColor(this, 'Slate Grey')"></div>
+                        <div class="color-option" style="background-color: #e8dcc8;"
+                            onclick="selectColor(this, 'Sandstone')"></div>
                     </div>
                 </div>
 
@@ -828,10 +817,10 @@
             // Remove selected class from all color options
             const colorOptions = document.querySelectorAll('.color-option');
             colorOptions.forEach(option => option.classList.remove('selected'));
-            
+
             // Add selected class to clicked option
             element.classList.add('selected');
-            
+
             // Update state and UI
             productState.selectedColor = colorName;
             const colorLabel = document.querySelector('.color-label strong');
@@ -856,10 +845,10 @@
             // Remove active class from all cards
             const cards = document.querySelectorAll('.fulfillment-card');
             cards.forEach(card => card.classList.remove('active'));
-            
+
             // Add active class to clicked card
             element.classList.add('active');
-            
+
             // Update state
             const method = element.querySelector('.fulfillment-title').textContent;
             productState.fulfillmentMethod = method;
@@ -871,7 +860,7 @@
         function toggleWishlist() {
             const wishlistBtn = document.getElementById('wishlistBtn');
             productState.isInWishlist = !productState.isInWishlist;
-            
+
             if (productState.isInWishlist) {
                 wishlistBtn.textContent = '❤';
                 wishlistBtn.style.color = '#cc0000';
@@ -885,15 +874,15 @@
             console.log('Wishlist status:', productState.isInWishlist);
         }
 
-    
+
         // Show toast notification
         function showToast(message) {
             const toast = document.getElementById('successToast');
             const toastMessage = document.getElementById('toastMessage');
-            
+
             toastMessage.textContent = message;
             toast.classList.add('show');
-            
+
             setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
@@ -906,10 +895,11 @@
         }
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             console.log('Product page initialized');
             console.log('Current product state:', productState);
         });
     </script>
 </body>
+
 </html>

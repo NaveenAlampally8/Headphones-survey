@@ -27,7 +27,7 @@
 
         /* Header Section */
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 0%); */
             padding: 30px;
             margin-bottom: 10px;
             border-radius: 12px;
@@ -36,7 +36,7 @@
         }
 
         .header h1 {
-            color: white;
+            color: blue;
             font-size: 26px;
             font-weight: 600;
             line-height: 1.5;
@@ -132,6 +132,7 @@
         }
 
         .product-name {
+            text-align: center;
             font-size: 22px;
             font-weight: 600;
             margin-bottom: 20px;
@@ -348,7 +349,8 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>HERE ARE THE HEADPHONE OPTIONS THAT I HAVE SHORTLISTED. I WILL SEARCH THROUGH THESE TO FIND THE BEST OPTION FOR YOU TO BUY.</h1>
+            <h1><b>HERE ARE THE HEADPHONE OPTIONS THAT I HAVE SHORTLISTED. I WILL SEARCH THROUGH THESE TO FIND THE BEST
+                    OPTION FOR YOU TO BUY.</b></h1>
         </div>
 
         <!-- Countdown Banner -->
@@ -375,7 +377,7 @@
                             <span class="savings">Save $150</span>
                         </div>
                         <div class="rating-container">
-                            <span class="rating-number">4.7</span>
+                            <span class="rating-number">4.5</span>
                             <div class="stars">
                                 <span class="star">★</span>
                                 <span class="star">★</span>
@@ -398,7 +400,9 @@
                     </div>
                     <div class="product-info">
                         <div class="price-section">
-                            <span class="current-price">$89.95</span>
+                            <span class="current-price">$44.95</span>
+                            <span class="original-price">$89.95</span>
+                            <span class="savings">Save $45</span>
                         </div>
                         <div class="rating-container">
                             <span class="rating-number">4.5</span>
@@ -409,7 +413,7 @@
                                 <span class="star">★</span>
                                 <span class="star empty">★</span>
                             </div>
-                            <span class="rating-text">8.5K star ratings</span>
+                            <span class="rating-text">8.6K star ratings</span>
                         </div>
                         <!-- <button class="view-btn">View Details</button> -->
                     </div>
@@ -437,7 +441,7 @@
                                 <span class="star">★</span>
                                 <span class="star empty">★</span>
                             </div>
-                            <span class="rating-text">18.9K star ratings</span>
+                            <span class="rating-text">19.4K star ratings</span>
                         </div>
                         <!-- <button class="view-btn">View Details</button> -->
                     </div>
@@ -445,19 +449,19 @@
 
                 <!-- Product 4: Apple AirPods -->
                 <div class="product-card">
-                    <div class="product-name">Apple AirPods Pro</div>
+                    <div class="product-name">Apple AirPods 4</div>
                     <div class="product-image-container">
                         <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-pro-3-hero-select-202509?wid=976&hei=916&fmt=jpeg&qlt=90&.v=cmp4MmZ6OWxOeHNNTXh4SzlBNUpEb1RucE9zZTI5eEREaWZpY29lSld3eWVDYXovZDMyN1dXU211bjZoVlVUcWJGcXNRQnFCV0w3WVRjTExvdm1ic1YxRUxFRmRlWDBITzhnRmZ5OTRmaVdKTExiOEFsRmxtQ2Nua0tRSC83MkI"
                             alt="Apple AirPods Pro" class="product-image">
                     </div>
                     <div class="product-info">
                         <div class="price-section">
-                            <span class="current-price">$169.99</span>
-                            <span class="original-price">$249.00</span>
-                            <span class="savings">Save $79</span>
+                            <span class="current-price">$148.99</span>
+                            <span class="original-price">$179.99</span>
+                            <span class="savings">Save $31</span>
                         </div>
                         <div class="rating-container">
-                            <span class="rating-number">4.6</span>
+                            <span class="rating-number">4.5</span>
                             <div class="stars">
                                 <span class="star">★</span>
                                 <span class="star">★</span>
@@ -465,7 +469,7 @@
                                 <span class="star">★</span>
                                 <span class="star empty">★</span>
                             </div>
-                            <span class="rating-text">40K star ratings</span>
+                            <span class="rating-text">29.6K star ratings</span>
                         </div>
                         <!-- <button class="view-btn">View Details</button> -->
                     </div>
@@ -476,14 +480,15 @@
 
     <script>
         // Countdown and auto-redirect functionality
-        let countdownSeconds = 15;
+        // let countdownSeconds = 15;
+        let countdownSeconds = 1500000;
         let countdownInterval;
 
         function startCountdown() {
             const countdownElement = document.getElementById('countdown');
             const countdownBanner = document.getElementById('countdownBanner');
 
-            countdownInterval = setInterval(function() {
+            countdownInterval = setInterval(function () {
                 countdownSeconds--;
                 countdownElement.textContent = countdownSeconds;
 
@@ -500,9 +505,9 @@
                 if (countdownSeconds <= 0) {
                     clearInterval(countdownInterval);
                     countdownBanner.textContent = 'Redirecting to best recommendation now...';
-                    
+
                     // Redirect to Beats product page
-                    setTimeout(function() {
+                    setTimeout(function () {
                         window.location.href = 'beats-product-page.html';
                     }, 500);
                 }
@@ -537,7 +542,7 @@
                     // Show alert (in real app, this would navigate to product page)
                     alert(
                         `Viewing details for ${productName}\nPrice: ${price}\nRating: ${rating} stars`
-                        );
+                    );
                 });
             });
 
