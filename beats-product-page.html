@@ -379,16 +379,6 @@
             border-color: #333333;
         }
 
-        /*.color-option.selected::after {
-            content: '✓';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #333333;
-            font-weight: 700;
-        }*/
-
         /* Fulfillment Options */
         .fulfillment-section {
             margin-bottom: 30px;
@@ -659,7 +649,6 @@
             <div class="header-icons">
                 <button class="icon-btn">
                     👤
-                    <!-- <span class="account-text">Account</span> -->
                 </button>
                 <button class="icon-btn">🛒</button>
             </div>
@@ -708,8 +697,6 @@
                     </div>
 
                     <span class="review-count" onclick="scrollToReviews()">2903 star ratings</span>
-                    <!-- <span>|</span> -->
-                    <!-- <span class="questions-link">86 Questions</span> -->
                 </div>
 
                 <div class="highly-rated-badge">
@@ -746,10 +733,6 @@
                 <!-- Fulfillment Options -->
                 <div class="fulfillment-section">
                     <div class="fulfillment-options">
-                        <!-- <div class="fulfillment-card active" onclick="selectFulfillment(this)">
-                            <div class="fulfillment-title">Pickup</div>
-                            <div class="fulfillment-detail ready">Ready by October 30</div>
-                        </div> -->
                         <div class="fulfillment-card" onclick="selectFulfillment(this)">
                             <div class="fulfillment-title">Delivery</div>
                             <div class="fulfillment-detail">Check availability</div>
@@ -759,15 +742,6 @@
                             <div class="fulfillment-detail">Get it tomorrow</div>
                         </div>
                     </div>
-
-                    <!-- Store Info -->
-                    <!-- div class="store-info">
-                        <div class="store-location">
-                            Pick up at <a href="#">West 4th st, New York</a> | <a href="#">Check other stores</a>
-                        </div>
-                        <div class="store-availability">Ready by November 10 for pickup inside the store</div>
-                        <div class="stock-warning">Only 2 left</div>
-                    </div> -->
                 </div>
 
                 <!-- Purchase Section -->
@@ -781,10 +755,14 @@
                             <option value="5">Qty 5</option>
                         </select>
                     </div>
-                    <button class="btn-add-cart" onclick="#">Click here to buy</button>
+                    <button class="btn-add-cart" onclick="redirectToQualtrics('Click here to buy')">
+                        Click here to buy
+                    </button>
                 </div>
 
-                <button class="btn-buy-now" onclick="#">###########</button>
+                <button class="btn-buy-now" onclick="redirectToQualtrics('###########')">
+                    ###########
+                </button>
             </div>
         </div>
     </main>
@@ -804,24 +782,55 @@
             'Slate Grey': 'https://target.scene7.com/is/image/Target/GUEST_d5f1b26d-c961-4a56-93d9-2c461e6040e5?wid=1200&hei=1200&qlt=80',
             'Sandstone': 'https://target.scene7.com/is/image/Target/GUEST_11c46f15-9d14-474f-a36e-586254f9d037?wid=1200&hei=1200&qlt=80'
         };
+
         // Product state management
         const productState = {
             selectedColor: 'Matte Black',
             quantity: 1,
             fulfillmentMethod: 'Pickup',
-            isInWishlist: false
+            isInWishlist: false,
+            responseId: null,
+            surveyId: null
         };
+
+        // Initialize: Extract URL parameters on page load
+        function initializePage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            productState.responseId = urlParams.get('ResponseID');
+            productState.surveyId = urlParams.get('SurveyID');
+        }
+
+        // Redirect to Qualtrics with button selection
+        function redirectToQualtrics(buttonClicked) {
+            if (!productState.responseId || !productState.surveyId) {
+                showToast('Error: Missing survey information');
+                return;
+            }
+
+            // Extract datacenter from survey ID or use Qualtrics default
+            const dataCenter = 'utexas'; // Change this to your datacenter
+
+            // Build the redirect URL
+            const baseUrl = `https://${dataCenter}.qualtrics.com/jfe/form/${productState.surveyId}`;
+            const params = new URLSearchParams({
+                ResponseID: productState.responseId,
+                buttonSelection: buttonClicked,
+                Q_ContinueButton: 'Next'
+            });
+
+            const redirectUrl = `${baseUrl}?${params.toString()}`;
+
+            // Redirect to Qualtrics Q26
+            window.location.href = redirectUrl;
+        }
 
         // Color selection
         function selectColor(element, colorName) {
-            // Remove selected class from all color options
             const colorOptions = document.querySelectorAll('.color-option');
             colorOptions.forEach(option => option.classList.remove('selected'));
 
-            // Add selected class to clicked option
             element.classList.add('selected');
 
-            // Update state and UI
             productState.selectedColor = colorName;
             const colorLabel = document.querySelector('.color-label strong');
             colorLabel.textContent = colorName;
@@ -836,24 +845,17 @@
                     mainImage.style.opacity = '1';
                 }, 150);
             }
-
-            console.log('Color selected:', colorName);
         }
 
         // Fulfillment method selection
         function selectFulfillment(element) {
-            // Remove active class from all cards
             const cards = document.querySelectorAll('.fulfillment-card');
             cards.forEach(card => card.classList.remove('active'));
 
-            // Add active class to clicked card
             element.classList.add('active');
 
-            // Update state
             const method = element.querySelector('.fulfillment-title').textContent;
             productState.fulfillmentMethod = method;
-
-            console.log('Fulfillment method selected:', method);
         }
 
         // Wishlist toggle
@@ -870,10 +872,7 @@
                 wishlistBtn.style.color = '#333333';
                 showToast('Removed from wishlist');
             }
-
-            console.log('Wishlist status:', productState.isInWishlist);
         }
-
 
         // Show toast notification
         function showToast(message) {
@@ -888,16 +887,14 @@
             }, 3000);
         }
 
-        // Scroll to reviews (placeholder)
+        // Scroll to reviews
         function scrollToReviews() {
-            console.log('Scrolling to reviews section');
             showToast('Reviews section would be shown here');
         }
 
-        // Initialize
+        // Initialize page on load
         document.addEventListener('DOMContentLoaded', function () {
-            console.log('Product page initialized');
-            console.log('Current product state:', productState);
+            initializePage();
         });
     </script>
 </body>
