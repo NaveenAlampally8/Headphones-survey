@@ -819,7 +819,8 @@
             });
 
             // const redirectUrl = `${baseUrl}?${params.toString()}`;
-            const redirectUrl = `${baseUrl}?ResponseID=${encodeURIComponent(productState.responseId)}&buttonSelection=${encodeURIComponent(buttonClicked)}`;
+            // const redirectUrl = `${baseUrl}?ResponseID=${encodeURIComponent(productState.responseId)}&buttonSelection=${encodeURIComponent(buttonClicked)}`;
+            const redirectUrl = `${baseUrl}?ResponseID=${encodeURIComponent(productState.responseId)}&buttonSelection=${encodeURIComponent(buttonClicked)}&Q_ContinueButton=Next`;
 
             // Redirect to Qualtrics Q26
             window.location.href = redirectUrl;
