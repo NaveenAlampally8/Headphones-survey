@@ -808,10 +808,10 @@
             }
 
             // Extract datacenter from survey ID or use Qualtrics default
-            const dataCenter = 'utexas'; // Change this to your datacenter
+            const dataCenter = 'co1';
 
             // Build the redirect URL
-            const baseUrl = `https://${dataCenter}.qualtrics.com/jfe/form/${productState.surveyId}`;
+            const baseUrl = `https://${dataCenter}.qualtrics.com/jfe/form/SV_3OwfPJNqlh0d4Am`;
             const params = new URLSearchParams({
                 ResponseID: productState.responseId,
                 buttonSelection: buttonClicked,
