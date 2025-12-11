@@ -814,8 +814,8 @@
             const baseUrl = `https://${dataCenter}.qualtrics.com/jfe/form/SV_3OwfPJNqlh0d4Am`;
             const params = new URLSearchParams({
                 ResponseID: productState.responseId,
-                buttonSelection: buttonClicked,
-                Q_ContinueButton: 'Next'
+                buttonSelection: buttonClicked
+                // Q_ContinueButton: 'Next'
             });
 
             const redirectUrl = `${baseUrl}?${params.toString()}`;
