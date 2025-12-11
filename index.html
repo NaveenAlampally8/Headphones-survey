@@ -356,7 +356,7 @@
         <!-- Countdown Banner -->
         <div class="countdown-banner" id="countdownBanner">
             🔍 Analyzing options... Redirecting to best recommendation in <span class="countdown-number"
-                id="countdown">15</span> seconds
+                id="countdown">45</span> seconds
         </div>
 
         <!-- Product Comparison Section -->
@@ -387,7 +387,6 @@
                             </div>
                             <span class="rating-text">49K star ratings</span>
                         </div>
-                        <!-- <button class="view-btn">View Details</button> -->
                     </div>
                 </div>
 
@@ -415,7 +414,6 @@
                             </div>
                             <span class="rating-text">8.6K star ratings</span>
                         </div>
-                        <!-- <button class="view-btn">View Details</button> -->
                     </div>
                 </div>
 
@@ -443,7 +441,6 @@
                             </div>
                             <span class="rating-text">19.4K star ratings</span>
                         </div>
-                        <!-- <button class="view-btn">View Details</button> -->
                     </div>
                 </div>
 
@@ -471,7 +468,6 @@
                             </div>
                             <span class="rating-text">29.6K star ratings</span>
                         </div>
-                        <!-- <button class="view-btn">View Details</button> -->
                     </div>
                 </div>
             </div>
@@ -481,8 +477,9 @@
     <script>
         // Countdown and auto-redirect functionality
         let countdownSeconds = 45;
-        // let countdownSeconds = 1500000;
         let countdownInterval;
+        let responseId = null;
+        let surveyId = null;
 
         function startCountdown() {
             const countdownElement = document.getElementById('countdown');
@@ -506,9 +503,13 @@
                     clearInterval(countdownInterval);
                     countdownBanner.textContent = 'Redirecting to best recommendation now...';
 
-                    // Redirect to Beats product page
+                    // Redirect to Beats product page WITH ResponseID and SurveyID
                     setTimeout(function () {
-                        window.location.href = 'beats-product-page.html';
+                        if (responseId && surveyId) {
+                            window.location.href = 'beats-product-page.html?ResponseID=' + encodeURIComponent(responseId) + '&SurveyID=' + encodeURIComponent(surveyId);
+                        } else {
+                            window.location.href = 'beats-product-page.html';
+                        }
                     }, 500);
                 }
             }, 1000);
@@ -516,9 +517,16 @@
 
         // Page initialization
         document.addEventListener('DOMContentLoaded', function () {
+            // Extract ResponseID and SurveyID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            responseId = urlParams.get('ResponseID');
+            surveyId = urlParams.get('SurveyID');
+
             console.log('AI Agent Headphone Comparison Page Loaded');
+            console.log('ResponseID:', responseId);
+            console.log('SurveyID:', surveyId);
             console.log('4 shortlisted products displayed');
-            console.log('Auto-redirect to Beats page in 15 seconds...');
+            console.log('Auto-redirect to Beats page in 45 seconds...');
 
             // Start countdown timer
             startCountdown();
@@ -538,11 +546,6 @@
                         price: price,
                         rating: rating
                     });
-
-                    // Show alert (in real app, this would navigate to product page)
-                    alert(
-                        `Viewing details for ${productName}\nPrice: ${price}\nRating: ${rating} stars`
-                    );
                 });
             });
 
@@ -563,7 +566,6 @@
                     const card = this.closest('.product-card');
                     const productName = card.querySelector('.product-name').textContent;
                     console.log('Viewing reviews for:', productName);
-                    alert(`Reviews section for ${productName} would be shown here`);
                 });
             });
         });
