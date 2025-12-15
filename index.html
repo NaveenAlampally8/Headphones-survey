@@ -760,7 +760,7 @@
                     </button>
                 </div>
 
-                <button class="btn-buy-now" onclick="redirectToQualtrics('###########')">
+                <button class="btn-buy-now" onclick="redirectToQualtrics('Back to Qualtrics')">
                     Back to Qualtrics
                 </button>
             </div>
@@ -774,6 +774,19 @@
     </div>
 
     <script>
+        // ============================================================
+        // CONFIGURATION - UPDATE THESE VALUES FOR YOUR SURVEY
+        // ============================================================
+        const CONFIG = {
+            // Your Qualtrics datacenter (found in your Qualtrics URL)
+            // e.g., if your URL is bmccbusiness.co1.qualtrics.com, use 'co1'
+            dataCenter: 'co1',
+
+            // Your Survey ID (found in survey URL or survey options)
+            surveyId: 'SV_39vLsp96vOiREsS'
+        };
+        // ============================================================
+
         // Color to image mapping
         const colorImages = {
             'Cloud Pink': 'https://target.scene7.com/is/image/Target/GUEST_6037f8a0-df3b-427f-806e-160d5a0ddb4f?wid=1200&hei=1200&qlt=80',
@@ -797,31 +810,40 @@
         function initializePage() {
             const urlParams = new URLSearchParams(window.location.search);
             productState.responseId = urlParams.get('ResponseID');
-            productState.surveyId = urlParams.get('SurveyID');
+            productState.surveyId = urlParams.get('SurveyID') || CONFIG.surveyId;
+
+            // Debug logging (remove in production)
+            console.log('Initialized with ResponseID:', productState.responseId);
+            console.log('Survey ID:', productState.surveyId);
         }
 
         // Redirect to Qualtrics with button selection
         function redirectToQualtrics(buttonClicked) {
-            if (!productState.responseId || !productState.surveyId) {
-                showToast('Error: Missing survey information');
-                return;
+            // Validate that we have required parameters
+            if (!productState.responseId) {
+                console.warn('Warning: No ResponseID found in URL parameters');
+                // Still redirect, Qualtrics will create a new response
             }
 
-            // Extract datacenter from survey ID or use Qualtrics default
-            // const dataCenter = 'co1';
-            const dataCenter = 'co1';  // Changed from 'iad1'
-            const baseUrl = `https://${dataCenter}.qualtrics.com/jfe/form/SV_39vLsp96vOiREsS`;
-            const params = new URLSearchParams({
-                ResponseID: productState.responseId,
-                buttonSelection: buttonClicked
-                // Q_ContinueButton: 'Next'
-            });
+            // Build the redirect URL back to your Qualtrics survey
+            const baseUrl = `https://${CONFIG.dataCenter}.qualtrics.com/jfe/form/${CONFIG.surveyId}`;
 
-            // const redirectUrl = `${baseUrl}?${params.toString()}`;
-            // const redirectUrl = `${baseUrl}?ResponseID=${encodeURIComponent(productState.responseId)}&buttonSelection=${encodeURIComponent(buttonClicked)}`;
-            const redirectUrl = `${baseUrl}?ResponseID=${encodeURIComponent(productState.responseId)}&buttonSelection=${encodeURIComponent(buttonClicked)}&Q_ContinueButton=Next`;
+            // Build URL with parameters
+            const params = new URLSearchParams();
 
-            // Redirect to Qualtrics Q26
+            // Add ResponseID if available (for response linking)
+            if (productState.responseId) {
+                params.append('Q_R', productState.responseId);
+            }
+
+            // Add the button selection
+            params.append('buttonSelection', buttonClicked);
+
+            const redirectUrl = `${baseUrl}?${params.toString()}`;
+
+            console.log('Redirecting to:', redirectUrl);
+
+            // Redirect to Qualtrics
             window.location.href = redirectUrl;
         }
 
