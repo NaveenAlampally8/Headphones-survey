@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Headphone Options - Shortlisted for You</title>
+    <title>Beats Solo 4 Bluetooth Wireless On-Ear Headphones - Target</title>
     <style>
         * {
             margin: 0;
@@ -13,561 +13,891 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8f9fa;
-            padding: 20px;
-            line-height: 1.6;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
             color: #333333;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Header Section */
-        .header {
-            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 0%); */
-            padding: 30px;
-            margin-bottom: 10px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-            text-align: center;
-        }
-
-        .header h1 {
-            color: blue;
-            font-size: 26px;
-            font-weight: 600;
             line-height: 1.5;
-            max-width: 900px;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-content {
+            max-width: 1440px;
             margin: 0 auto;
-        }
-
-        .agent-badge {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Countdown Timer */
-        .countdown-banner {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            text-align: center;
             padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 16px;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.02);
-            }
-        }
-
-        .countdown-number {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 5px;
-        }
-
-
-        /* Product Grid Container */
-        .comparison-container {
-            background-color: white;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        }
-
-        .comparison-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 25px;
-            text-align: center;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f3f4f6;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .product-card {
-            background-color: #f9fafb;
-            padding: 25px;
-            border-radius: 8px;
-            border: 2px solid #e5e7eb;
             display: flex;
-            flex-direction: column;
-            transition: all 0.3s;
-            cursor: pointer;
+            align-items: center;
+            gap: 30px;
         }
 
-        .product-card:hover {
-            border-color: #667eea;
-            background-color: white;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
-            transform: translateY(-2px);
-        }
-
-        .product-name {
-            text-align: center;
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .product-image-container {
-            width: 100%;
-            height: 280px;
+        .logo {
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 8px;
-            overflow: hidden;
+            cursor: pointer;
         }
 
-        .product-image {
-            max-width: 85%;
-            max-height: 85%;
-            object-fit: contain;
+        .logo img {
+            width: 70%;
+            height: auto;
         }
 
-        .product-info {
+        .nav-menu {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            gap: 25px;
+            list-style: none;
+            flex: 1;
         }
 
-        .price-section {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
+        .nav-menu a {
+            text-decoration: none;
+            color: #333333;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
-        .current-price {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1a1a1a;
+        .nav-menu a:hover {
+            color: #cc0000;
         }
 
-        .original-price {
-            font-size: 18px;
-            color: #999999;
-            text-decoration: line-through;
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 750px;
         }
 
-        .savings {
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #cccccc;
+            border-radius: 20px;
             font-size: 14px;
-            color: #16a34a;
-            font-weight: 600;
-            background-color: #f0fdf4;
-            padding: 4px 10px;
-            border-radius: 4px;
+            background-color: #f5f5f5;
         }
 
-        /* Rating Section - Matching Target Design */
-        .rating-container {
+        .search-input:focus {
+            outline: none;
+            border-color: #cc0000;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333333;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            color: #cc0000;
+        }
+
+        .account-text {
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        /* Recommendation Banner */
+        .recommendation-banner {
+            background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .recommendation-banner h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .recommendation-banner p {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1440px;
+            margin: 20px auto;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 16px;
+            font-size: 14px;
         }
 
-        .rating-number {
-            font-size: 24px;
-            font-weight: 600;
-            color: #1a1a1a;
+        .breadcrumb a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: #999999;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .product-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* Image Section */
+        .image-section {
+            position: relative;
+        }
+
+        .zoom-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-image-container {
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .main-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 22px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .wishlist-btn:hover {
+            background-color: #cc0000;
+            color: white;
+            border-color: #cc0000;
+        }
+
+        /* Product Info Section */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-link {
+            color: #333333;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .brand-link:hover {
+            text-decoration: underline;
+        }
+
+        .product-title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #333333;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .stars {
             display: flex;
             gap: 2px;
+            color: #ffc107;
         }
 
         .star {
-            font-size: 20px;
-            color: #fbbf24;
+            font-size: 18px;
         }
 
         .star.empty {
-            color: #d1d5db;
+            color: #e0e0e0;
         }
 
-        .star.half {
-            position: relative;
-            display: inline-block;
-        }
-
-        .star.half::before {
-            content: '★';
-            position: absolute;
-            left: 0;
-            color: #fbbf24;
-            width: 50%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .rating-text {
-            color: #666666;
-            font-size: 16px;
+        .review-count {
+            color: #333333;
             text-decoration: underline;
             cursor: pointer;
+            font-size: 14px;
         }
 
-        .rating-text:hover {
-            color: #1a1a1a;
+        .questions-link {
+            color: #333333;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        /* View Button */
-        .view-btn {
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #667eea;
+        .highly-rated-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #f0f7ff;
+            color: #0066cc;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        /* Price Section */
+        .price-section {
+            margin-bottom: 25px;
+        }
+
+        .current-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: #cc0000;
+            margin-right: 10px;
+        }
+
+        .regular-price {
+            font-size: 16px;
+            color: #666666;
+            text-decoration: line-through;
+        }
+
+        .reg-label {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .sale-info {
+            color: #cc0000;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Color Selector */
+        .color-section {
+            margin-bottom: 30px;
+        }
+
+        .color-label {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+
+        .color-option.selected {
+            border-color: #333333;
+        }
+
+        /* Fulfillment Options */
+        .fulfillment-section {
+            margin-bottom: 30px;
+        }
+
+        .fulfillment-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .fulfillment-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .fulfillment-card:hover {
+            border-color: #cccccc;
+        }
+
+        .fulfillment-card.active {
+            border-color: #006400;
+            background-color: #f0fff0;
+        }
+
+        .fulfillment-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .fulfillment-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .fulfillment-detail {
+            font-size: 13px;
+            color: #666666;
+        }
+
+        .fulfillment-detail.ready {
+            color: #006400;
+            font-weight: 500;
+        }
+
+        /* Store Info */
+        .store-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .store-location {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .store-location a {
+            color: #333333;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .store-availability {
+            font-size: 14px;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+
+        .stock-warning {
+            color: #cc0000;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Quantity and Actions */
+        .purchase-section {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quantity-selector {
+            position: relative;
+        }
+
+        .quantity-select {
+            padding: 12px 40px 12px 15px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            appearance: none;
+        }
+
+        .quantity-select:focus {
+            outline: none;
+            border-color: #cc0000;
+        }
+
+        .quantity-selector::after {
+            content: '▼';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            padding: 14px 30px;
+            background-color: #cc0000;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 25px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
-        .view-btn:hover {
-            background-color: #5568d3;
+        .btn-add-cart:hover {
+            background-color: #b30000;
+        }
+
+        .btn-buy-now {
+            width: 100%;
+            padding: 14px 30px;
+            background-color: white;
+            color: #333333;
+            border: 1px solid #cccccc;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-buy-now:hover {
+            background-color: #f5f5f5;
+            border-color: #999999;
+        }
+
+        /* Success Message */
+        .success-toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #006400;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .success-toast.show {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .comparison-container {
-                padding: 20px;
-            }
-
-            .product-grid {
+            .product-layout {
                 grid-template-columns: 1fr;
-                gap: 15px;
+                gap: 30px;
             }
 
-            .comparison-title {
-                font-size: 18px;
+            .nav-menu {
+                display: none;
             }
         }
 
         @media (max-width: 768px) {
-            .header {
-                padding: 25px 20px;
+            .header-content {
+                flex-wrap: wrap;
             }
 
-            .header h1 {
-                font-size: 20px;
+            .search-container {
+                order: 3;
+                width: 100%;
+                max-width: none;
             }
 
-            .comparison-container {
-                padding: 15px;
+            .product-title {
+                font-size: 22px;
             }
 
-            .comparison-title {
-                font-size: 16px;
-                margin-bottom: 20px;
+            .recommendation-banner h2 {
+                font-size: 18px;
             }
 
-            .product-card {
-                padding: 20px;
-            }
-
-            .product-name {
-                font-size: 20px;
-            }
-
-            .product-image-container {
-                height: 220px;
+            .recommendation-banner p {
+                font-size: 15px;
             }
 
             .current-price {
-                font-size: 24px;
+                font-size: 28px;
             }
 
-            .rating-number {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
+            .fulfillment-options {
+                grid-template-columns: 1fr;
             }
 
-            .header {
-                padding: 20px 15px;
+            .purchase-section {
+                flex-direction: column;
             }
 
-            .header h1 {
-                font-size: 18px;
-            }
-
-            .comparison-container {
-                padding: 12px;
-            }
-
-            .product-card {
-                padding: 15px;
-            }
-
-            .product-name {
-                font-size: 18px;
+            .color-options {
+                flex-wrap: wrap;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1><b>HERE ARE THE HEADPHONE OPTIONS THAT I HAVE SHORTLISTED. I WILL SEARCH THROUGH THESE TO FIND THE BEST
-                    OPTION FOR YOU TO BUY.</b></h1>
-        </div>
+    <!-- Recommendation Banner -->
+    <div class="recommendation-banner">
+        <h2>Based on my research, this is the best headphone option for you to buy.</h2>
+        <p>Please go over the info on this page and click on the red button below if you want to buy it.</p>
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://www.beatsbydre.com/content/dam/beats/global/logos/beats-logo-161616.png"
+                    alt="Beats by Dre Logo">
+            </div>
 
-        <!-- Countdown Banner -->
-        <div class="countdown-banner" id="countdownBanner">
-            🔍 Analyzing options... Redirecting to best recommendation in <span class="countdown-number"
-                id="countdown">45</span> seconds
-        </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">New & featured</a></li>
+                    <li><a href="#">Pickup & delivery</a></li>
+                </ul>
+            </nav>
 
-        <!-- Product Comparison Section -->
-        <div class="comparison-container">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search" value="beats solo 4">
+            </div>
 
-            <div class="product-grid">
-                <!-- Product 1: Sony WH-WH1000XM4 -->
-                <div class="product-card">
-                    <div class="product-name">Sony WH-1000XM4</div>
-                    <div class="product-image-container">
-                        <img src="https://d1ncau8tqf99kp.cloudfront.net/converted/74748_original_local_1200x1050_v3_converted.webp"
-                            alt="Sony WH-1000XM4 Headphones" class="product-image">
-                    </div>
-                    <div class="product-info">
-                        <div class="price-section">
-                            <span class="current-price">$199.99</span>
-                            <span class="original-price">$349.99</span>
-                            <span class="savings">Save $150</span>
-                        </div>
-                        <div class="rating-container">
-                            <span class="rating-number">4.5</span>
-                            <div class="stars">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
-                            <span class="rating-text">49K star ratings</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 2: JBL Tune 720 BT -->
-                <div class="product-card">
-                    <div class="product-name">JBL Tune 720 BT</div>
-                    <div class="product-image-container">
-                        <img src="https://www.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw211f3dfc/01.JBL_Tune_720BT_ProductImage_Hero_White.png?sw=535&sh=535"
-                            class="product-image">
-                    </div>
-                    <div class="product-info">
-                        <div class="price-section">
-                            <span class="current-price">$44.95</span>
-                            <span class="original-price">$89.95</span>
-                            <span class="savings">Save $45</span>
-                        </div>
-                        <div class="rating-container">
-                            <span class="rating-number">4.5</span>
-                            <div class="stars">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star empty">★</span>
-                            </div>
-                            <span class="rating-text">8.6K star ratings</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 3: Beats Studio Pro -->
-                <div class="product-card">
-                    <div class="product-name">Beats Studio Pro</div>
-                    <div class="product-image-container">
-                        <img src="https://www.beatsbydre.com/content/dam/beats/web/product/headphones/solo4-wireless/pdp/product-carousel/matte-black/black-01-solo4.jpg"
-                            class="product-image">
-                    </div>
-                    <div class="product-info">
-                        <div class="price-section">
-                            <span class="current-price">$129.99</span>
-                            <span class="original-price">$199.95</span>
-                            <span class="savings">Save $70</span>
-                        </div>
-                        <div class="rating-container">
-                            <span class="rating-number">4.6</span>
-                            <div class="stars">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star empty">★</span>
-                            </div>
-                            <span class="rating-text">19.4K star ratings</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product 4: Apple AirPods -->
-                <div class="product-card">
-                    <div class="product-name">Apple AirPods 4</div>
-                    <div class="product-image-container">
-                        <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-pro-3-hero-select-202509?wid=976&hei=916&fmt=jpeg&qlt=90&.v=cmp4MmZ6OWxOeHNNTXh4SzlBNUpEb1RucE9zZTI5eEREaWZpY29lSld3eWVDYXovZDMyN1dXU211bjZoVlVUcWJGcXNRQnFCV0w3WVRjTExvdm1ic1YxRUxFRmRlWDBITzhnRmZ5OTRmaVdKTExiOEFsRmxtQ2Nua0tRSC83MkI"
-                            alt="Apple AirPods Pro" class="product-image">
-                    </div>
-                    <div class="product-info">
-                        <div class="price-section">
-                            <span class="current-price">$148.99</span>
-                            <span class="original-price">$179.99</span>
-                            <span class="savings">Save $31</span>
-                        </div>
-                        <div class="rating-container">
-                            <span class="rating-number">4.5</span>
-                            <div class="stars">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star empty">★</span>
-                            </div>
-                            <span class="rating-text">29.6K star ratings</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="header-icons">
+                <button class="icon-btn">
+                    👤
+                </button>
+                <button class="icon-btn">🛒</button>
             </div>
         </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="#">Target</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="#">Electronics</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="#">Headphones</a>
+        <span class="breadcrumb-separator">›</span>
+        <span>On-Ear & Over-Ear Headphones</span>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="product-layout">
+            <!-- Image Section -->
+            <div class="image-section">
+                <div class="zoom-icon">⤢</div>
+                <div class="main-image-container">
+                    <img id="mainImage"
+                        src="https://target.scene7.com/is/image/Target/GUEST_ab5e01ad-d628-40b9-bef2-cc325776f5e4?wid=1000&hei=1000&qlt=80&fmt=webp"
+                        alt="Beats Solo 4 Bluetooth Wireless On-Ear Headphones" class="main-image">
+                </div>
+                <button class="wishlist-btn" id="wishlistBtn" onclick="toggleWishlist()">♡</button>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="product-info">
+                <a href="#" class="brand-link">Shop all Beats</a>
+
+                <h1 class="product-title">Beats Solo 4 Bluetooth Wireless On-Ear Headphones</h1>
+
+                <div class="rating-section">
+                    <h3>4.2</h3>
+                    <div class="stars">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star empty">★</span>
+                    </div>
+
+                    <span class="review-count" onclick="scrollToReviews()">2903 star ratings</span>
+                </div>
+
+                <div class="highly-rated-badge">
+                    ⭐ Highly rated
+                </div>
+
+                <!-- Price Section -->
+                <div class="price-section">
+                    <div>
+                        <span class="current-price">$129.99</span>
+                        <span class="reg-label">reg</span>
+                        <span class="regular-price">$199.99</span>
+                    </div>
+                    <div class="sale-info">Sale save $70.00 (35% off)</div>
+                </div>
+
+                <!-- Color Selector -->
+                <div class="color-section">
+                    <label class="color-label">Color <strong>Matte Black</strong></label>
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #d4c5d8;"
+                            onclick="selectColor(this, 'Cloud Pink')"></div>
+                        <div class="color-option selected" style="background-color: #1a1a1a;"
+                            onclick="selectColor(this, 'Matte Black')"></div>
+                        <div class="color-option" style="background-color: #4a6278;"
+                            onclick="selectColor(this, 'Slate Blue')"></div>
+                        <div class="color-option" style="background-color: #c8c8c8;"
+                            onclick="selectColor(this, 'Slate Grey')"></div>
+                        <div class="color-option" style="background-color: #e8dcc8;"
+                            onclick="selectColor(this, 'Sandstone')"></div>
+                    </div>
+                </div>
+
+                <!-- Fulfillment Options -->
+                <div class="fulfillment-section">
+                    <div class="fulfillment-options">
+                        <div class="fulfillment-card" onclick="selectFulfillment(this)">
+                            <div class="fulfillment-title">Delivery</div>
+                            <div class="fulfillment-detail">Check availability</div>
+                        </div>
+                        <div class="fulfillment-card" onclick="selectFulfillment(this)">
+                            <div class="fulfillment-title">Shipping</div>
+                            <div class="fulfillment-detail">Get it tomorrow</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purchase Section -->
+                <div class="purchase-section">
+                    <div class="quantity-selector">
+                        <select class="quantity-select" id="quantitySelect">
+                            <option value="1">Qty 1</option>
+                            <option value="2">Qty 2</option>
+                            <option value="3">Qty 3</option>
+                            <option value="4">Qty 4</option>
+                            <option value="5">Qty 5</option>
+                        </select>
+                    </div>
+                    <button class="btn-add-cart" onclick="redirectToQualtrics('Click here to buy')">
+                        Click here to buy
+                    </button>
+                </div>
+
+                <button class="btn-buy-now" onclick="redirectToQualtrics('###########')">
+                    ###########
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Toast -->
+    <div id="successToast" class="success-toast">
+        <span style="font-size: 24px;">✓</span>
+        <span id="toastMessage">Added to cart!</span>
     </div>
 
     <script>
-        // Countdown and auto-redirect functionality
-        let countdownSeconds = 45;
-        let countdownInterval;
-        let responseId = null;
-        let surveyId = null;
+        // Color to image mapping
+        const colorImages = {
+            'Cloud Pink': 'https://target.scene7.com/is/image/Target/GUEST_6037f8a0-df3b-427f-806e-160d5a0ddb4f?wid=1200&hei=1200&qlt=80',
+            'Matte Black': 'https://target.scene7.com/is/image/Target/GUEST_ab5e01ad-d628-40b9-bef2-cc325776f5e4?wid=1200&hei=1200&qlt=80',
+            'Slate Blue': 'https://target.scene7.com/is/image/Target/GUEST_51116bc4-ada4-4d88-8330-e160a9e144ad?wid=1200&hei=1200&qlt=80',
+            'Slate Grey': 'https://target.scene7.com/is/image/Target/GUEST_d5f1b26d-c961-4a56-93d9-2c461e6040e5?wid=1200&hei=1200&qlt=80',
+            'Sandstone': 'https://target.scene7.com/is/image/Target/GUEST_11c46f15-9d14-474f-a36e-586254f9d037?wid=1200&hei=1200&qlt=80'
+        };
 
-        function startCountdown() {
-            const countdownElement = document.getElementById('countdown');
-            const countdownBanner = document.getElementById('countdownBanner');
+        // Product state management
+        const productState = {
+            selectedColor: 'Matte Black',
+            quantity: 1,
+            fulfillmentMethod: 'Pickup',
+            isInWishlist: false,
+            responseId: null,
+            surveyId: null
+        };
 
-            countdownInterval = setInterval(function () {
-                countdownSeconds--;
-                countdownElement.textContent = countdownSeconds;
-
-                // Change banner color as countdown gets closer to 0
-                if (countdownSeconds <= 5) {
-                    countdownBanner.style.background = 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)';
-                }
-
-                if (countdownSeconds <= 3) {
-                    countdownBanner.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
-                }
-
-                // Redirect when countdown reaches 0
-                if (countdownSeconds <= 0) {
-                    clearInterval(countdownInterval);
-                    countdownBanner.textContent = 'Redirecting to best recommendation now...';
-
-                    // Redirect to Beats product page WITH ResponseID and SurveyID
-                    setTimeout(function () {
-                        if (responseId && surveyId) {
-                            window.location.href = 'beats-product-page.html?ResponseID=' + encodeURIComponent(responseId) + '&SurveyID=' + encodeURIComponent(surveyId);
-                        } else {
-                            window.location.href = 'beats-product-page.html';
-                        }
-                    }, 500);
-                }
-            }, 1000);
+        // Initialize: Extract URL parameters on page load
+        function initializePage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            productState.responseId = urlParams.get('ResponseID');
+            productState.surveyId = urlParams.get('SurveyID');
         }
 
-        // Page initialization
+        // Redirect to Qualtrics with button selection
+        function redirectToQualtrics(buttonClicked) {
+            if (!productState.responseId || !productState.surveyId) {
+                showToast('Error: Missing survey information');
+                return;
+            }
+
+            // Extract datacenter from survey ID or use Qualtrics default
+            // const dataCenter = 'co1';
+            const dataCenter = 'iad1';
+
+            // Build the redirect URL
+            const baseUrl = `https://${dataCenter}.qualtrics.com/jfe/form/SV_3OwfPJNqlh0d4Am`;
+            const params = new URLSearchParams({
+                ResponseID: productState.responseId,
+                buttonSelection: buttonClicked
+                // Q_ContinueButton: 'Next'
+            });
+
+            // const redirectUrl = `${baseUrl}?${params.toString()}`;
+            // const redirectUrl = `${baseUrl}?ResponseID=${encodeURIComponent(productState.responseId)}&buttonSelection=${encodeURIComponent(buttonClicked)}`;
+            const redirectUrl = `${baseUrl}?ResponseID=${encodeURIComponent(productState.responseId)}&buttonSelection=${encodeURIComponent(buttonClicked)}&Q_ContinueButton=Next`;
+
+            // Redirect to Qualtrics Q26
+            window.location.href = redirectUrl;
+        }
+
+        // Color selection
+        function selectColor(element, colorName) {
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => option.classList.remove('selected'));
+
+            element.classList.add('selected');
+
+            productState.selectedColor = colorName;
+            const colorLabel = document.querySelector('.color-label strong');
+            colorLabel.textContent = colorName;
+
+            // Change the main product image
+            const mainImage = document.getElementById('mainImage');
+            if (colorImages[colorName]) {
+                mainImage.style.opacity = '0';
+                setTimeout(() => {
+                    mainImage.src = colorImages[colorName];
+                    mainImage.style.transition = 'opacity 0.3s ease-in-out';
+                    mainImage.style.opacity = '1';
+                }, 150);
+            }
+        }
+
+        // Fulfillment method selection
+        function selectFulfillment(element) {
+            const cards = document.querySelectorAll('.fulfillment-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            element.classList.add('active');
+
+            const method = element.querySelector('.fulfillment-title').textContent;
+            productState.fulfillmentMethod = method;
+        }
+
+        // Wishlist toggle
+        function toggleWishlist() {
+            const wishlistBtn = document.getElementById('wishlistBtn');
+            productState.isInWishlist = !productState.isInWishlist;
+
+            if (productState.isInWishlist) {
+                wishlistBtn.textContent = '❤';
+                wishlistBtn.style.color = '#cc0000';
+                showToast('Added to wishlist!');
+            } else {
+                wishlistBtn.textContent = '♡';
+                wishlistBtn.style.color = '#333333';
+                showToast('Removed from wishlist');
+            }
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('successToast');
+            const toastMessage = document.getElementById('toastMessage');
+
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Scroll to reviews
+        function scrollToReviews() {
+            showToast('Reviews section would be shown here');
+        }
+
+        // Initialize page on load
         document.addEventListener('DOMContentLoaded', function () {
-            // Extract ResponseID and SurveyID from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            responseId = urlParams.get('ResponseID');
-            surveyId = urlParams.get('SurveyID');
-
-            console.log('AI Agent Headphone Comparison Page Loaded');
-            console.log('ResponseID:', responseId);
-            console.log('SurveyID:', surveyId);
-            console.log('4 shortlisted products displayed');
-            console.log('Auto-redirect to Beats page in 45 seconds...');
-
-            // Start countdown timer
-            startCountdown();
-
-            // Add event listeners to all view buttons
-            const viewButtons = document.querySelectorAll('.view-btn');
-            viewButtons.forEach(function (button) {
-                button.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    const card = this.closest('.product-card');
-                    const productName = card.querySelector('.product-name').textContent;
-                    const price = card.querySelector('.current-price').textContent;
-                    const rating = card.querySelector('.rating-number').textContent;
-
-                    console.log('View Details clicked:', {
-                        product: productName,
-                        price: price,
-                        rating: rating
-                    });
-                });
-            });
-
-            // Add hover effect logging for product cards
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach(function (card) {
-                card.addEventListener('mouseenter', function () {
-                    const productName = this.querySelector('.product-name').textContent;
-                    console.log('User viewing:', productName);
-                });
-            });
-
-            // Add click handler for rating text
-            const ratingTexts = document.querySelectorAll('.rating-text');
-            ratingTexts.forEach(function (text) {
-                text.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    const card = this.closest('.product-card');
-                    const productName = card.querySelector('.product-name').textContent;
-                    console.log('Viewing reviews for:', productName);
-                });
-            });
+            initializePage();
         });
     </script>
 </body>
